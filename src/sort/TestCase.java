@@ -28,9 +28,9 @@ public class TestCase {
         QuickSort<Integer> quickSort = new QuickSort<>();
         HeapSort<Integer> heapSort = new HeapSort<>();
 
-//        SortTestHelper.testSort("SelectionSort", selectionSort, arr);
-//        SortTestHelper.testSort("InsertionSort", insertionSort, arr);
-//        SortTestHelper.testSort("ShellSort", shellSort, arr);
+        SortTestHelper.testSort("SelectionSort", selectionSort, manyDuplicateArr);
+        SortTestHelper.testSort("InsertionSort", insertionSort, manyDuplicateArr);
+        SortTestHelper.testSort("ShellSort", shellSort, manyDuplicateArr);
         SortTestHelper.testSort("MergeSort", mergeSort, manyDuplicateArr);
         SortTestHelper.testSort("QuickSort", quickSort, manyDuplicateArr);
         SortTestHelper.testSort("HeapSort", heapSort, manyDuplicateArr);
