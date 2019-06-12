@@ -15,4 +15,12 @@ class Solution {
         }
         throw new IllegalArgumentException("Error");
     }
+
+    public static void main(String[] args) {
+        Solution s = new Solution();
+        int[] res = s.twoSum(new int[]{1, 2, 3, 4, 5}, 6);
+        for (int i : res) {
+            System.out.print(i + ", ");
+        }
+    }
 }
