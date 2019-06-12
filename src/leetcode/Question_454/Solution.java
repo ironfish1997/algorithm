@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 class Solution {
+    
     //O(n^2)的解法
     public int fourSumCount(int[] A, int[] B, int[] C, int[] D) {
         assert A.length == B.length;
