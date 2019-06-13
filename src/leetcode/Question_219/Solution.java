@@ -9,21 +9,14 @@ import java.util.Set;
 class Solution {
     //使用滑动窗口加上查找表来完成
     public boolean containsNearbyDuplicate(int[] nums, int k) {
-        int l = 0, r = (l + k) >= nums.length ? nums.length - 1 : (l + k);
         Set<Integer> set = new HashSet<>();
-        for (int i = l; i <= r; i++) {
+        for (int i = 0; i < nums.length; i++) {
             if (set.contains(nums[i])) {
                 return true;
-            } else {
-                set.add(nums[i]);
             }
-        }
-        while (r < nums.length - 1) {
-            set.remove(nums[l++]);
-            if (set.contains(nums[r + 1])) {
-                return true;
-            } else {
-                set.add(nums[++r]);
+            set.add(nums[i]);
+            if (set.size() == k + 1) {
+                set.remove(nums[i - k]);
             }
         }
         return false;
