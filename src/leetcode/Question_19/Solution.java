@@ -14,7 +14,7 @@ import leetcode.common.ListNode;
 class Solution {
     public ListNode removeNthFromEnd(ListNode head, int n) {
         if (head == null) {
-            return head;
+            return null;
         }
         ListNode dummy = new ListNode(-1);
         dummy.next = head;
