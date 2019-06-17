@@ -1,5 +1,7 @@
 package leetcode.Question_144;
 
+import leetcode.common.TreeNode;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
@@ -14,16 +16,6 @@ import java.util.Stack;
  * }
  */
 class Solution {
-
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     public class Command {
         boolean go;
