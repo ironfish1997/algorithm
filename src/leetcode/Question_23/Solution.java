@@ -17,13 +17,7 @@ class Solution {
         if (lists == null) {
             return null;
         }
-        PriorityQueue<Integer> queue = new PriorityQueue<>((o1, o2) -> {
-            if (o1.compareTo(o2) > 0) {
-                return 1;
-            } else if (o1.compareTo(o2) < 0) {
-                return -1;
-            } else return 0;
-        });
+        PriorityQueue<Integer> queue = new PriorityQueue<>();
         for (ListNode node : lists) {
             while (node != null) {
                 queue.offer(node.val);
