@@ -18,7 +18,6 @@ class Solution {
         letterMap.put(7, "pqrs");
         letterMap.put(8, "tuv");
         letterMap.put(9, "wxyz");
-
     }
 
     public List<String> letterCombinations(String digits) {
