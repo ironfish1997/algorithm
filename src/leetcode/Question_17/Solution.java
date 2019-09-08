@@ -21,27 +21,21 @@ class Solution {
     }
 
     public List<String> letterCombinations(String digits) {
-        if (digits == null || digits.trim().length() == 0) {
+        if (digits == null || digits.length() == 0) {
             return res;
         }
-        char[] chars = digits.trim().toCharArray();
-        combinations(chars, 0, "");
+        combination(digits.toCharArray(), 0, "");
         return res;
     }
 
-    private void combinations(char[] chars, int index, String s) {
-        if (index == chars.length) {
-            res.add(s);
+    private void combination(char[] digits, int index, String previewRes) {
+        if (index == digits.length) {
+            res.add(previewRes);
             return;
         }
-        char c = chars[index];
-        if (c <= '1' || c > '9') {
-            return;
+        char[] floorRes = letterMap.get(digits[index] - '0').toCharArray();
+        for (char i : floorRes) {
+            combination(digits, index + 1, previewRes + i);
         }
-        char[] letters = letterMap.get(c - '0').toCharArray();
-        for (int i = 0; i < letters.length; i++) {
-            combinations(chars, index + 1, s + letters[i]);
-        }
-        return;
     }
 }
