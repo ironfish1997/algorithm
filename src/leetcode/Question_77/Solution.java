@@ -15,20 +15,20 @@ class Solution {
     private LinkedList<Integer> elements = new LinkedList<>();
 
     public List<List<Integer>> combine(int n, int k) {
-        if (n <= 0 || k <= 0 || k > n) return rtn;
+        if (k <= 0 || k > n) return rtn;
         combine(elements, n, 1, k);
         return rtn;
     }
 
     private void combine(LinkedList<Integer> elements, int n, int start, int k) {
-        if (k==0) {
+        if (k == 0) {
             List<Integer> temp = new ArrayList<>(elements);
             rtn.add(temp);
             return;
         }
-        for (int i = start; i <= n-k+1; i++) {
+        for (int i = start; i <= n - k + 1; i++) {
             elements.addLast(i);
-            combine(elements, n, i + 1, k-1);
+            combine(elements, n, i + 1, k - 1);
             elements.removeLast();
         }
     }
