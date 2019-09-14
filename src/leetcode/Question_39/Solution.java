@@ -21,22 +21,19 @@ class Solution {
         if (target < candidates[0]) {
             return rtn;
         }
-        combinationSum(new LinkedList<Integer>(), candidates, target);
+        combinationSum(new LinkedList<Integer>(), candidates, target, 0);
         return rtn;
     }
 
-    private void combinationSum(LinkedList<Integer> oneRtn, int[] candidates, int left) {
+    private void combinationSum(LinkedList<Integer> oneRtn, int[] candidates, int left, int current) {
         if (left == 0) {
-            oneRtn.sort(Comparator.comparingInt(c -> c));
             rtn.add(new ArrayList<>(oneRtn));
             return;
         }
-        for (int i = 0; i < candidates.length && candidates[i] <= left; i++) {
-            if (oneRtn.size() == 0 || oneRtn.getLast() <= candidates[i]) {
-                oneRtn.addLast(candidates[i]);
-                combinationSum(oneRtn, candidates, left - candidates[i]);
-                oneRtn.removeLast();
-            }
+        for (int i = current; i < candidates.length && candidates[i] <= left; i++) {
+            oneRtn.addLast(candidates[i]);
+            combinationSum(oneRtn, candidates, left - candidates[i], i);
+            oneRtn.removeLast();
         }
     }
 }
