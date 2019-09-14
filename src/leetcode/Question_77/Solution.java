@@ -21,14 +21,14 @@ class Solution {
     }
 
     private void combine(LinkedList<Integer> elements, int n, int start, int k) {
-        if (elements.size() == k) {
+        if (k==0) {
             List<Integer> temp = new ArrayList<>(elements);
             rtn.add(temp);
             return;
         }
-        for (int i = start; i <= n; i++) {
+        for (int i = start; i <= n-k+1; i++) {
             elements.addLast(i);
-            combine(elements, n, i + 1, k);
+            combine(elements, n, i + 1, k-1);
             elements.removeLast();
         }
     }
