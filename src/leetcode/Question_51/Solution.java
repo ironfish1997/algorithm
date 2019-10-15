@@ -15,7 +15,7 @@ class Solution {
     private int[] dales;
     private int n;
     // output
-    private ArrayList output = new ArrayList();
+    private ArrayList<List<String>> output = new ArrayList<>();
     // queens positions
     private int[] queens;
 
