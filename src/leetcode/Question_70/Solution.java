@@ -1,23 +1,18 @@
 package leetcode.Question_70;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * @Author liyong.liu
  * @Date 2019-10-22
  **/
 class Solution {
-    private static Map<Integer, Integer> steps = new HashMap<>();
 
     public int climbStairs(int n) {
-        if (n == 1) {
-            return 1;
+        int[] steps = new int[n+1];
+        steps[0] = 1;
+        steps[1] = 1;
+        for (int i = 2; i <= n; i++) {
+            steps[i] = steps[i - 1] + steps[i - 2];
         }
-        if (n == 2) {
-            return 2;
-        }
-        if (!steps.containsKey(n)) steps.put(n, climbStairs(n - 1) + climbStairs(n - 2));
-        return steps.get(n);
+        return steps[n];
     }
 }
