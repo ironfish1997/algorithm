@@ -1,6 +1,5 @@
 package sort;
 
-import org.junit.Test;
 import sort.heapSort.HeapSort;
 import sort.insertionSort.InsertionSort;
 import sort.insertionSort.ShellSort;
@@ -13,7 +12,6 @@ import sort.selectionSort.SelectionSort;
  * @Date 2019-06-03
  **/
 public class TestCase {
-    @Test
     public void testSelectSort() {
         int n = 10000000;
         Integer[] randomArr = SortTestHelper.getRandomArr(n, Integer.MAX_VALUE);
