@@ -18,38 +18,29 @@ import java.util.Queue;
  */
 class Solution {
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
-        List<List<Integer>> rtn = new ArrayList<List<Integer>>();
-        if (root == null) {
-            return rtn;
-        }
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.offer(root);
-        boolean level = true;
-        while (!queue.isEmpty()) {
-            int level_length = queue.size();
-            LinkedList<Integer> level_arr = new LinkedList<>();
-            rtn.add(level_arr);
-            //从左往右
-            for (int i = 0; i < level_length; i++) {
-                TreeNode node = queue.poll();
-                if (level) {
-                    level_arr.add(node.val);
-                } else {
-                    level_arr.addFirst(node.val);
-                }
-                if (node.left != null) {
-                    queue.offer(node.left);
-                }
-                if (node.right != null) {
-                    queue.offer(node.right);
-                }
-            }
-            level = !level;
-        }
-        return rtn;
+        List<List<Integer>> result = new ArrayList<>();
+        if(root == null)
+            return result;
+        zigzagRecursive(0, root, result);
+        return result;
     }
 
-    public static void main(String[] args) {
+    private void zigzagRecursive(int level, TreeNode root, List<List<Integer>> result){
+        if(root==null)
+            return;
+        LinkedList<Integer> row;
+        if(result.size()<=level){
+            row = new LinkedList<>();
+            result.add(level,row);
+        }else
+            row = (LinkedList)result.get(level);
 
+        if(level%2==0){
+            row.add(root.val);
+        }else{
+            row.addFirst(root.val);
+        }
+        zigzagRecursive(level+1, root.left,result);
+        zigzagRecursive(level+1, root.right,result);
     }
 }
